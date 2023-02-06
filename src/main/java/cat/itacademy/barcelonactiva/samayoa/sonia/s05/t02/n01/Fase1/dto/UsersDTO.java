@@ -3,7 +3,7 @@ package cat.itacademy.barcelonactiva.samayoa.sonia.s05.t02.n01.Fase1.dto;
 import java.sql.Date;
 import java.util.List;
 
-import cat.itacademy.barcelonactiva.samayoa.sonia.s05.t02.n01.Fase1.domain.Games;
+import cat.itacademy.barcelonactiva.samayoa.sonia.s05.t02.n01.Fase1.domain.Game;
 
 
 public class UsersDTO {
@@ -12,7 +12,7 @@ public class UsersDTO {
 	private String UserName;
 	private Date RegDate;
 	private double AverageSuccess;
-	private List<Games> games;
+	private List<Game> games;
 	public int getId() {
 		return id;
 	}
@@ -38,10 +38,10 @@ public class UsersDTO {
 	public void setAverageSuccess(double averageSuccess) {
 		AverageSuccess = averageSuccess;
 	}
-	public List<Games> getGames() {
+	public List<Game> getGames() {
 		return games;
 	}
-	public void setGames(List<Games> games) {
+	public void setGames(List<Game> games) {
 		this.games = games;
 	}
 	

@@ -1,7 +1,9 @@
 package cat.itacademy.barcelonactiva.samayoa.sonia.s05.t02.n01.Fase1.services;
 
-import cat.itacademy.barcelonactiva.samayoa.sonia.s05.t02.n01.Fase1.domain.Users;
-import cat.itacademy.barcelonactiva.samayoa.sonia.s05.t02.n01.Fase1.dto.UsersDTO;
+import java.util.List;
+
+import cat.itacademy.barcelonactiva.samayoa.sonia.s05.t02.n01.Fase1.domain.Game;
+import cat.itacademy.barcelonactiva.samayoa.sonia.s05.t02.n01.Fase1.domain.User;
 
 public interface UserServices {
 	
@@ -16,8 +18,12 @@ GET /players/ranking/loser: retorna el jugador/a  amb pitjor percentatge d’èx
 GET /players/ranking/winner: retorna el  jugador amb pitjor percentatge d’èxit. 
 
 */
-	public Users add(UsersDTO userDTO);
-	public UsersDTO update(UsersDTO userDTO, int id);
+	public void add(User user);
+	public void addGame(Game game);
+	public User update(User user, Long id);
+	public List<User> getAllUser();
+	public List<Game> getAllGame();
+	public void delete(Long id);
 	
 
 }

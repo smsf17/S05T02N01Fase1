@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+  <header th:replace="plantilla/template :: header"></header>
+
+  <div class="container">
+    <h1 th:text="${listUsers}"></h1>
+     
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Date</th>
+      <th scope="col">User</th>
+      <th scope="col">AverageSuccess</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="us:${listUsers}">
+      <th scope="row" th:text="${us.id}"></th>
+      <td th:text="${us.userName}"></td>
+      <td th:text="${us.regDate}"></td>
+      <td th:text="${us.averageWin}"></td>
+    </tr>
+ 
+
+  </tbody>
+</table>
+  </div>
+  
+  <footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>

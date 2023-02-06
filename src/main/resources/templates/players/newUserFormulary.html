@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+	<header th:replace="plantilla/template :: header"></header>
+
+	<div class="container">
+		<h1 th:text="${newUser}"></h1>
+
+		<div class="card bg-light">
+		<div class="card-header" th:text="${newUser}"></div>
+		<div class="card-body">
+
+		<form th:action="@{/players/save}" th:object="${newUser}" method="post">		
+		
+			<input type="hidden" th:field="*{id}">
+			<div class="form-group row">
+				<label  class="col-md-2" for="userName">Nombre Jugador:</label> 
+				<input type="text" th:field="*{userName}" class="form-control form-control-sm col-md-6"
+					id="userName" placeholder="userName">
+			
+			<button type="submit" class="btn btn-primary">Jugar</button>
+			
+		</form>
+	</div>
+
+	<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>
