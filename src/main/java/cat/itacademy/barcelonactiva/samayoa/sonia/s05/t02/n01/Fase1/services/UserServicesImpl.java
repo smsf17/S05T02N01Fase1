@@ -1,5 +1,6 @@
 package cat.itacademy.barcelonactiva.samayoa.sonia.s05.t02.n01.Fase1.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,9 +65,20 @@ public class UserServicesImpl implements UserServices {
 		return game;
 	}
 	
+	/*public List<Game> gameListUser() {
+		User user;
+		List<Game> gameList = new ArrayList<Game>();
+		for (Game game : gameList) {
+			if (game.getIdUser().equals(user.getId())){
+				gameList.add(game);
+				}
+		}
+		return gameList;
+	}*/
+	
 	public double AverageSuccess(List<Game> game) {
 
-		User user;
+		User user = null;
 		int Success = 0;
 		float Average = 0;
 		for (int i = 0; i < game.size(); i++) {
@@ -75,7 +87,7 @@ public class UserServicesImpl implements UserServices {
 			}
 		}
 		Average = Success / game.size() * 100;
-		user.setAverageWin(Average);
+		user.getAverageWin();
 
 		return Average;
 	}

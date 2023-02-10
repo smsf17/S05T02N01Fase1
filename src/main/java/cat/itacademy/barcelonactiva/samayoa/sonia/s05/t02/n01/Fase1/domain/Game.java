@@ -1,9 +1,11 @@
 package cat.itacademy.barcelonactiva.samayoa.sonia.s05.t02.n01.Fase1.domain;
 
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -13,12 +15,8 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "games")
-public class Game implements Serializable{
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class Game{
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,9 +34,10 @@ public class Game implements Serializable{
 	@Column(name = "Win")
 	private Boolean Win ;
 	
-	 @ManyToOne()
-	    @JoinColumn(name = "idUser")
-	    private User user;
+	 @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	 @JoinColumn(name = "idUser", referencedColumnName = "id")
+	 @JsonIgnoreProperties("userList")
+	 private User user;
 
 	public Long getIdGame() {
 		return idGame;
@@ -96,6 +95,7 @@ public class Game implements Serializable{
 	public void setUsers(User user) {
 		this.user = user;
 	}
+
 
 
 }
